@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <tr></tr>
+    <button id="get">get</button>
+    <button id="post">post</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+
+        $(document).ready(function(){
+        //     $("#get").click(function(){
+        //       $.get("http://localhost:8181/api/so/006d8aa9-e3d7-45d3-8467-5f27dc03df81", function(data, status){
+        //         alert("so_no: " + data.so_no + " customer: " + data.customer_id.customer_name +"\nStatus: " + status);
+        //       });
+        //     });
+        //   });
+
+            $("#get").click(function(){
+
+                  $.get("http://localhost:8181/api/customer/f8dd5bb9-0ad3-410c-bb4a-8ab0c325e411", function(data, status){
+
+                        alert("so_no: " + data.customer_code + " customer: " + data.customer_name +"\nStatus: " + status);
+                  });
+            });
+        
+            // $("#post").click(function(){
+            //     $.post("http://localhost:8181/api/customer",
+            //         {
+            //             customer_code : "cust0012324",
+            //             customer_name : "Ni Levin",
+            //             address :"tangerang",
+            //             birth_date :"1995-01-12",
+            //             default_payment :"cash"
+            //         },
+            //         function(data,status){
+            //             var json = JSON.parse(data);
+            //         alert("Data: " + data + "\nStatus: " + status);
+            //     });
+            // });
+                $("#post").click(function(event) {
+
+                    var datas = {}
+                    datas["customer_code"] = "cust0012325";
+                    datas["customer_name"] = "Ni Levin";
+                    datas["address"] = "tangerang";
+                    datas["birth_date"] = "1995-01-12";
+                    datas["default_payment"] = "cash";
+
+                    $("#post").prop("disabled", true);
+
+                    $.ajax({
+                            type: "POST",
+                            contentType: "application/json",
+                            url: "http://localhost:8181/api/customer",
+                            data: JSON.stringify(datas),
+                            dataType: 'json',
+                            timeout: 600000,
+                            success: function (data,status) {
+                                $("#btn-update").prop("disabled", false);
+                                alert(" customer: " + datas.customer_code +"\nStatus: " + status);
+                                //...
+                            },
+                            error: function (message,status) {
+                                $("#btn-save").prop("disabled", false);
+                                alert("message: " + message.message+" status: "+status);
+                                //...
+                            }
+                    });
+
+
+                    });
+
+         });
+    </script>
+    
+</body>
+</html>

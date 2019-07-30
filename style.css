@@ -1,0 +1,27 @@
+.class1
+{
+    font-size: 30px;color: green
+}
+.class2
+{
+    font-size: 30px;color: red
+}
+
+#id1
+{
+    font-size: 24px;color: red;float: left; width: 200px;
+    border: 2px solid red
+}
+#id2
+{
+    font-size: 24px;color: green;float: left;width: 200px;
+    border: 2px solid green;
+    /* margin: 10px 15px 20px -25px */
+    
+}
+.clear{
+    clear: both;
+} 
+.classUtama{
+
+}

@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <style>
+            /* .class1
+            {
+                font-size: 30px;color: green
+            }
+            .class2
+            {
+                font-size: 30px;color: red
+            }
+
+            #id1
+            {
+                font-size: 24px;color: red;float: left; width: 200px;
+                border: 2px solid red
+            }
+            #id2
+            {
+                font-size: 24px;color: green;float: left;width: 200px;
+                border: 2px solid green;
+                margin: 10px 15px 20px -25px
+                
+            }
+            .clear{
+                clear: both;
+            } */
+
+
+        </style>
+        <link rel=stylesheet href="style.css" type=text/css>
+
+    </head>
+
+    <body>
+
+        <div class="class1">
+            <!-- text class 1
+            <div class="class2">
+                text class 2
+                <div id="id1">
+                    text ini warna merah ukuran 24px
+                </div>  
+            </div> -->
+            
+            <div id="id1">
+                div 1
+            </div>
+
+            <div id="id2">
+                div 2
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="class2">
+            <div id="id1">
+                div 1
+            </div>
+            <div id="id2">
+                div 2
+            </div>    
+            <div class="clear"></div>
+        </div>
+
+        <div>
+            <p>nurdinnnn</p>
+            <button class="btn" >button</button>
+            <button class="btn2" >button2</button>        
+        </div>
+
+        <form >
+            <input id="rb1" type="radio" name="rb" value="yes"> yes<br>
+            <input id="rb2" type="radio" name="rb" value="no"> no<br>
+
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // alert("Hello");
+
+                $(".btn").click(function(){
+                    $(".class1").after(".class1");
+                  });
+
+                $(".btn2").click(function(){
+                     $(".class1").show();
+                });
+
+                $("#rb1").click(function(){
+                    $(".btn").hide();
+                    $(".btn2").show();
+                });
+
+                $("#rb2").click(function(){
+                    $(".btn").show();
+                    $(".btn2").hide();
+                });
+
+            });
+
+            // $(document).ready(function(){
+            //     $("#id2").hide();
+            // });
+
+            // var callback = function(){
+            //     alert("Hello world!");
+            //     };
+
+            //     if (
+            //         document.readyState === "complete" ||
+            //         (document.readyState !== "loading" && !document.documentElement.doScroll)
+            //     ) {
+            //     callback();
+            //     } else {
+            //     document.addEventListener("DOMContentLoaded", callback);
+            //     }
+                    
+            
+        </script>
+    </body>
+</html>
